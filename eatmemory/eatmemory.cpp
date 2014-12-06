@@ -7,7 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
-
+#include <conio.h>
 
 template<int ChunkSize>
 struct MemoryChunk
@@ -61,7 +61,8 @@ int main()
     }
 
     std::cout << "done allocating.." << std::endl;
-    std::cin.ignore();
+    std::cout << "Press any key to exit..." << std::endl;
+    _getch();
 
 	return 0;
 }

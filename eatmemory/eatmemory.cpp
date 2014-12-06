@@ -21,23 +21,24 @@ struct MemoryChunk
 
 int main()
 {
-    static const int GBToBytes = 1024 * 1024 * 1024;
+    long GBToBytes = 1024 * 1024 * 1024;
 
-    unsigned long MaxMemoryToAllocateInBytes = 0;
+    long long MaxMemoryToAllocateInBytes = 0;
     std::cout << "Max Memory to allocate in GB:\t";
     std::cin >> MaxMemoryToAllocateInBytes;
     std::cout << std::endl;
 
-    MaxMemoryToAllocateInBytes *= GBToBytes;
-
+    MaxMemoryToAllocateInBytes = MaxMemoryToAllocateInBytes * GBToBytes;
     static const int AllocationSize = 20 * 1024; // 20KB chunk
-    const long MaxAllocations = MaxMemoryToAllocateInBytes / AllocationSize + 1;
+    const long long MaxAllocations = MaxMemoryToAllocateInBytes / AllocationSize + 1;
 
+    std::cout << "Allocating " << MaxMemoryToAllocateInBytes << " Bytes in " << MaxAllocations << " Chunks of 20KB" << std::endl;
+    
     std::vector<MemoryChunk<AllocationSize>> alloccedMemory;
     alloccedMemory.reserve(MaxAllocations);
 
-    int counter = 0;
-    int allocatedTillNowInMB = 0;
+    long long counter = 0;
+    long long allocatedTillNowInMB = 0;
     try
     {
         while (true && counter < MaxAllocations)

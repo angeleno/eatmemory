@@ -21,6 +21,11 @@ struct MemoryChunk
 
 int main()
 {
+    std::cout << "A handy utility to simulate memory pressure on system" << std::endl;
+    std::cout << "Copyright c Sarang Baheti 2015" << std::endl;
+    std::cout << "source available at: https://github.com/angeleno/eatmemory" << std::endl;
+    std::cout << std::endl;
+
     long GBToBytes = 1024 * 1024 * 1024;
 
     long long MaxMemoryToAllocateInBytes = 0;
